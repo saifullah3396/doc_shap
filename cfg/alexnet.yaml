@@ -1,0 +1,94 @@
+basic_args:
+  output_dir: ${OUTPUT}/output/
+  overwrite_output_dir: True
+  seed: 42
+  n_gpu: 1
+  n_nodes: 1
+  distributed_accelerator: null
+  do_train: True
+  do_eval: True
+  do_test: True
+
+data_args:
+  dataset_name: rvlcdip
+  dataset_dir: ''
+  data_caching_args:
+    use_datadings: False
+    cache_encoded_images: True
+    cache_resized_images: True
+    cache_grayscale_images: True
+    cache_image_size: [224, 224]
+    load_data_to_ram: False
+    cached_data_name: resized_224x224
+    dataset_cache_dir: ${OUTPUT}/datasets/
+  data_splitting_args: null
+  train_aug_args: null
+  eval_aug_args:
+    - name: basic_image
+      keys:
+        - image
+      params:
+        - gray_to_rgb: True
+          rescale_strategy: rescale_simple
+          rescale_params:
+            rescale_dim: 224
+            rescale_both_dims: True
+          normalize: True
+  data_loader_args:
+    per_device_train_batch_size: 256
+    per_device_eval_batch_size: 256
+    dataloader_drop_last: False
+    shuffle_data: True
+    pin_memory: True
+    dataloader_num_workers: 0
+  data_tokenization_args:
+    tokenize_dataset: False
+  extras: null
+
+analyzer_args:
+  analyzer_output_dir: ${OUTPUT}/model_analyzer
+  models:
+  - model_name: alexnet
+    model_task: image_classification
+    model_version: ''
+    cache_dir: ${OUTPUT}/pretrained/
+    use_return_dict: True
+    pretrained: True
+    model_checkpoint_file: https://cloud.dfki.de/owncloud/index.php/s/qoMKr3Kn7ZZH6KP/download/alexnet.ckpt
+    grad_batch_size: 1
+  analysis_tasks:
+    # - task_name: generate_metrics
+    #   metrics:
+    #   - accuracy
+    #   - confusion_matrix
+    # - task_name: generate_shap_values
+    #   num_test_samples_per_class: 1
+    #   shap_num_bg_samples: 10
+    #   save_bg_to_cache: True
+    #   bg_name: shap_background_test
+    #   save_samples_to_cache: True
+    #   load_bg_from_cache: True
+    #   load_samples_from_cache: True
+    #   ranked_outputs: 3
+    #   only_get_true_shap_value: False
+    #   only_get_pred_shap_value: False
+    #   get_true_and_pred_shap_value: False
+    #   analyze_complete_dataset: False
+    # - task_name: generate_shap_visualizations
+    #   resize_shap: True
+    - task_name: feature_perturbation
+      importance_order: descending
+      feature_importance_grid_size: 4
+      black_and_white_threshold: 125
+      max_perturbation_percentage: 1.0
+      attack_type: black_white_pixel_dropout
+      save_visualizations: True
+      save_perturbations: True
+      # shuffle_data: True
+      # max_data_per_label: 250
+      attack_config:
+        arg_name: dropout_pixels
+        mode: linear
+        arg_min: 0
+        arg_max: null
+        arg_step: 4

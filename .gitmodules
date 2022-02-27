@@ -1,0 +1,3 @@
+[submodule "external/shap"]
+	path = external/shap
+	url = https://github.com/saifullah3396/shap.git

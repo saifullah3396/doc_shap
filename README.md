@@ -1,4 +1,4 @@
-# SHAP for Document Understanding
+# SHAP for Document Interpretability
 This repository contains the evaluation code for the paper [The Reality of High Performing Deep Learning Models: A Case Study on Document Image Classification](https) by Saifullah, Stefan Agne, Andreas Dengel, and Sheraz Ahmed.
 
 Requires Python 3+. For evaluation, please follow the steps below.

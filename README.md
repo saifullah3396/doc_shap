@@ -39,7 +39,15 @@ This will save the model results, confusion matrices, SHAP visualizations, and c
 # Citation
 If you find this useful in your research, please consider citing our associated paper:
 ```
-@misc{._2022, title={The Reality of High Performing Deep Learning Models: A Case Study on Document Image Classification}, url={https://www.techrxiv.org/articles/preprint/The_Reality_of_High_Performing_Deep_Learning_Models_A_Case_Study_on_Document_Image_Classification/19310537/1}, DOI={10.36227/techrxiv.19310537.v1}, abstractNote={This paper presents an approach to interpret the predictions of deep learning models in the domain of document image classification.}, publisher={TechRxiv}, author={., Saifullah}, year={2022}, month={Mar} } 
+@misc{
+  ._2022, 
+  title={The Reality of High Performing Deep Learning Models: A Case Study on Document Image Classification}, 
+  url={https://www.techrxiv.org/articles/preprint/The_Reality_of_High_Performing_Deep_Learning_Models_A_Case_Study_on_Document_Image_Classification/19310537/1}, 
+  DOI={10.36227/techrxiv.19310537.v1}, 
+  abstractNote={This paper presents an approach to interpret the predictions of deep learning models in the domain of document image classification.}, 
+  publisher={TechRxiv}, 
+  author={., Saifullah}, year={2022}, month={Mar} 
+ } 
 ```
 
 # License

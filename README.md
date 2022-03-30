@@ -39,7 +39,16 @@ This will save the model results, confusion matrices, SHAP visualizations, and c
 # Citation
 If you find this useful in your research, please consider citing our associated paper:
 ```
-., Saifullah; Agne, Stefan; Dengel, Andreas; Ahmed, Sheraz (2022): The Reality of High Performing Deep Learning Models: A Case Study on Document Image Classification. TechRxiv. Preprint. https://doi.org/10.36227/techrxiv.19310537.v2
+@misc{
+  saifullah_agne_dengel_ahmed_2022, 
+  title={The Reality of High Performing Deep Learning Models: A Case Study on Document Image Classification}, 
+  url={https://www.techrxiv.org/articles/preprint/The_Reality_of_High_Performing_Deep_Learning_Models_A_Case_Study_on_Document_Image_Classification/19310537/2}, 
+  DOI={10.36227/techrxiv.19310537.v2}, 
+  publisher={TechRxiv}, 
+  author={Saifullah and Agne, Stefan and Dengel, Andreas and Ahmed, Sheraz},
+  year={2022}, 
+  month={Mar}
+} 
 ```
 
 # License
